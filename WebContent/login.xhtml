@@ -13,21 +13,24 @@
 	</ui:define>
 
 	<ui:define name="form">
-		<h:form class="form-horizontal">
+		<h:form id="loginForm" class="form-horizontal">
 
 			<div class="form-group">
 				<label for="inputEmail" class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-8">
-				<h:inputText type="email" class="form-control" id="inputAddress"
-						value="#{credential.email}">
+				<h:inputText type="email" class="form-control" id="inputEmail"
+						value="#{login.email}">
 						</h:inputText>
+						<h:message class="error" for="inputEmail" id="inputEmailError" />
+  
 						
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
 				<div class="col-sm-8">
-					   <h:inputSecret type="password" class="form-control" id="inputPassword" value="#{credential.password}" placeholder="Contraseña"></h:inputSecret>
+					   <h:inputSecret type="password" class="form-control" id="inputPassword" value="#{login.psw}" placeholder="Contraseña"></h:inputSecret>
+					   <h:message class="error" for="inputPassword" id="inputPasswordError" />
 				</div>
 			</div>
 			<div class="form-group">

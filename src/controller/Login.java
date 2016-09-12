@@ -3,12 +3,17 @@ package controller;
 
 import java.io.Serializable;
 
-
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty; //for bean injection
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+
 
 import helpers.FactoryDAO;
+import helpers.SessionUtil;
 import model.Admin;
 import model.FinalUser;
 import model.User;
@@ -25,31 +30,49 @@ public class Login implements Serializable{
 	 * ***ES UNA MIERDA TODO ESTO!!!!
 	 * 
 	 */
-	
-	
+
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 9006242568409334101L;
-	@ManagedProperty(value="#{credential}")
-	private Credential credential;
 
 	private User user;
 	private boolean isAdmin; //TODO:arreglar esto!!!
-	
+	private String email; 
+	public String getEmail() {
+		return email;
+	}
+
+
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+
+
+	public String getPsw() {
+		return psw;
+	}
+
+
+
+
+
+	public void setPsw(String psw) {
+		this.psw = psw;
+	}
+
+
+	private String psw ;
 	public Login(){
-		
-		
-	}
-
-	public Credential getCredential() {
-		return credential;
-	}
 
 
-
-	public void setCredential(Credential credential) {
-		this.credential = credential;
 	}
 
 
@@ -69,100 +92,132 @@ public class Login implements Serializable{
 
 
 	public String login() {
-		String email = credential.getEmail();
-		if (email!=null){
-			user = FactoryDAO.getUserDAO().getUserByUserEmail(email);
-			if (email.equals("admin@admin.com")){
-				isAdmin=true;//TODO: MOdificar esto! Es solo para prueba
-				FinalUser usuario= new FinalUser();
-				//TODO:ELIMINAR!! Es para que comience con un usuario creado para probar el habilitar deshabilitar
-				usuario.setPassword("2345ftuvbh");
-				usuario.setIsEnable(false);
-				usuario.setName("PEPITO");
-				FactoryDAO.getFinalUserDAO().create(usuario);
-			}
+		user = FactoryDAO.getUserDAO().getUserByUserEmail(email);
+		//TODO: MOdificar esto! Es solo para prueba
+		if (email.equals("admin@admin.com")){
+			isAdmin=true;
+			FinalUser usuario= new FinalUser();
+			//TODO:ELIMINAR!! Es para que comience con un usuario creado para probar el habilitar deshabilitar
+			usuario.setPassword("2345ftuvbh");
+			usuario.setIsEnable(false);
+			usuario.setName("PEPITO");
+			FactoryDAO.getFinalUserDAO().create(usuario);
+		}
+		if (user!=null){
+		if (psw.equals(user.getPassword())){
+			HttpSession session = SessionUtil.getSession();
+			session.setAttribute("username", user);
 			return "successfulLogin";
+			//		}
+			//		//boolean valid = LoginDAO.validate(user, pwd);
+			//		if (valid) {
+			//			HttpSession session = SessionUtils.getSession();
+			//			session.setAttribute("username", user);
+			//			
+			//			return "admin";
+		} else {
+			user = null;//TODO: NO Deberia ser necesario (ver logout)
+			FacesContext.getCurrentInstance().addMessage(
+					"loginForm:inputPassword",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Incorrect Passowrd",
+							"Contraseña incorrecta, intente nuevamente"));
+			return "unsuccessfulLogin";
 		}
-		return "unsuccessfulLogin";
-		//	        
-		//
-		//	        List<User> results = FactoryDAO.getUserDAO().getUser(
-		//	        		userDatabase.createQuery(
-		//
-		//	           "select u from User u where u.username=:username and u.password=:password")
-		//
-		//	           .setParameter("username", credentials.getUsername())
-		//
-		//	           .setParameter("password", credentials.getPassword())
-		//
-		//	           .getResultList();
-		//
-		//	        
-		//
-		//	        if ( !results.isEmpty() ) {
-		//
-		//	           user = results.get(0);
-		//
-		//	        }
-		//
-
-
+		}else{
+			FacesContext.getCurrentInstance().addMessage(
+					"loginForm:inputEmail",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR,
+							"Incorrect Username",
+							"Por favor ingrese un email valido"));
+			return "unsuccessfulLogin";
+			
+		}
+		
 	}
 
-
-
+	//logout event, invalidate session
 	public String logout() {
-
-		user = null;
+		HttpSession session = SessionUtil.getSession();
+		session.invalidate();
+		user = null;//TODO: ARREGLAR Esto es para que no muestre el boton como que esta la sesion iniciada pero se debe controlar de otra manera 
 		return "loggedOut";
-
-
-	}
-
-
-
-	public boolean isLoggedIn() {
-
-		return user!=null;
-
-	}
-
-
-
-	User getCurrentUser() {
-
-		return user;
-
-	}
-
-
-
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-
-
-
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
-
-
-	public String modificarDatos(){
-		if (credential.getConfirmationPsw().equals(user.getPassword())){
-			String psw=credential.getNewPsw();
-			if ((!psw.equals("")) && psw.equals(credential.getRepeatedPsw())){
-				user.setPassword(psw);
-			}
-			if (user instanceof FinalUser)
-				FactoryDAO.getFinalUserDAO().update((FinalUser)user);
-			//		else if (user instanceof Admin)
-			//			FactoryDAO.getAdminDAO().update((FinalUser)user);
-			return "exito";	
-		}
-		return "fallo";
-	}
-
-
+		//	}
+		//		
+		//		if (email!=null){
+		//			user = FactoryDAO.getUserDAO().getUserByUserEmail(email);
+		//			//TODO: MOdificar esto! Es solo para prueba
+		//			if (email.equals("admin@admin.com")){
+		//				isAdmin=true;
+		//				FinalUser usuario= new FinalUser();
+		//				//TODO:ELIMINAR!! Es para que comience con un usuario creado para probar el habilitar deshabilitar
+		//				usuario.setPassword("2345ftuvbh");
+		//				usuario.setIsEnable(false);
+		//				usuario.setName("PEPITO");
+		//				FactoryDAO.getFinalUserDAO().create(usuario);
+		//			}
+		//			
+		//			if (psw.equals(user.getPassword())){
+		//				return "successfulLogin";
+		//			}
+		//		}
+		//		return "unsuccessfulLogin";
 }
+
+
+
+//		public String logout() {
+//
+//			user = null;
+//			return "loggedOut";
+//
+//
+//		}
+
+
+
+		public boolean isLoggedIn() {
+
+			return user!=null;
+
+		}
+
+
+
+		User getCurrentUser() {
+
+			return user;
+
+		}
+
+
+
+		public boolean isAdmin() {
+			return isAdmin;
+		}
+
+
+
+		public void setAdmin(boolean isAdmin) {
+			this.isAdmin = isAdmin;
+		}
+
+
+		public String modificarDatos(){
+			//		if (credential.getConfirmationPsw().equals(user.getPassword())){
+			//			String psw=credential.getNewPsw();
+			//			if ((!psw.equals("")) && psw.equals(credential.getRepeatedPsw())){
+			//				user.setPassword(psw);
+			//			}
+			//			if (user instanceof FinalUser)
+			//				FactoryDAO.getFinalUserDAO().update((FinalUser)user);
+			//			//		else if (user instanceof Admin)
+			//			//			FactoryDAO.getAdminDAO().update((FinalUser)user);
+			//			return "exito";	
+			//		}
+			return "fallo";
+		}
+
+
+	}
 

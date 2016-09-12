@@ -1,5 +1,7 @@
 package classesDAO;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -29,7 +31,11 @@ public class UserDAO extends GenericDAO<User> implements interfacesDAO.IUserDAO{
 		EntityManager em;
 		String hql = "FROM "+this.entityClass.getName()+" U WHERE U.email=\'"+email+"\'";
 		em = manFac.createEntityManager();//Se conecta a la BD
-		User usr=(User) em.createQuery(hql).getResultList().get(0);
+		List list = em.createQuery(hql).getResultList();
+		User usr=null;
+		if (!list.isEmpty()){
+			usr=(User) list.get(0);
+		}
 		em.close();
 		return usr;	
 	}

@@ -14,95 +14,98 @@ import model.FinalUser;
 @ManagedBean
 @RequestScoped
 public class UserBean {
-private FinalUser usuario = new FinalUser();
-private String user_id;
-private String repeatedPsw;
-private boolean newPsw;
-private List<FinalUser> userList;
-static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-static SecureRandom rnd = new SecureRandom();
+	private FinalUser usuario = new FinalUser();
+	private String user_id;
+	private String repeatedPsw;
+	private boolean newPsw;
+	private List<FinalUser> userList;
+	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	static SecureRandom rnd = new SecureRandom();
 
-String randomString( int len ){
-	StringBuilder sb = new StringBuilder( len );
-	for( int i = 0; i < len; i++ ) 
-		sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
-	return sb.toString();
-}
+	String randomString( int len ){
+		StringBuilder sb = new StringBuilder( len );
+		for( int i = 0; i < len; i++ ) 
+			sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
+		return sb.toString();
+	}
 
-public String crearUsuario(){
-	
-	usuario.setPassword(randomString(8));
-	usuario.setIsEnable(true);
-	FactoryDAO.getFinalUserDAO().create(usuario);
-//	setUserList(FactoryDAO.getFinalUserDAO().getAll());	
-	newPsw=true;
-	return "exito";	
+	public String crearUsuario(){
+		if (FactoryDAO.getUserDAO().getUserByUserEmail(usuario.getEmail())==null){
+			usuario.setPassword(randomString(8));
+			usuario.setIsEnable(true);
+			FactoryDAO.getFinalUserDAO().create(usuario);
+			newPsw=true;
+			return "exito";	
+		}
+		return "userExist";
 
-	//CAMBIAR LOS DATOS DE LA PERSISTENCIA CON LOS DATOS DE LA BBDD
-//	#: N° de grupo (5 en nuestro caso)
-//	usuario: jyaa_sala_usr#
-//	clave: jyaa_sala_psw# 
-//	DB: jyaa_sala_db#
-}
-public String modificarDatos(){
-	FactoryDAO.getFinalUserDAO().update(usuario);
-	return "exito";	
-}
-public String deshabilitar() {
-	if (user_id!=null)
-		return "deshabilitado";
-	return "exito";
-	
-}
-public String habilitar() {
-	return "habilitado";
-	
-}
-public FinalUser getUsuario() {
-	return usuario;
-}
 
-public void setUsuario(FinalUser usuario) {
-	this.usuario = usuario;
-}
 
-public String getRepeatedPsw() {
-	return repeatedPsw;
-}
+		//CAMBIAR LOS DATOS DE LA PERSISTENCIA CON LOS DATOS DE LA BBDD
+		//	#: N° de grupo (5 en nuestro caso)
+		//	usuario: jyaa_sala_usr#
+		//	clave: jyaa_sala_psw# 
+		//	DB: jyaa_sala_db#
+	}
+	public String modificarDatos(){
+		FactoryDAO.getFinalUserDAO().update(usuario);
+		return "exito";	
+	}
+	public String deshabilitar() {
+		if (user_id!=null)
+			return "deshabilitado";
+		return "exito";
 
-public void setRepeatedPsw(String repeatedPsw) {
-	this.repeatedPsw = repeatedPsw;
-}
+	}
+	public String habilitar() {
+		return "habilitado";
 
-public String getUser_id() {
-	return user_id;
-}
+	}
+	public FinalUser getUsuario() {
+		return usuario;
+	}
 
-public void setUser_id(String user_id) {
-	this.user_id = user_id;
-}
+	public void setUsuario(FinalUser usuario) {
+		this.usuario = usuario;
+	}
 
-//
-//<!-- <li><h:commandLink action="#{userBean.loadUsers}">Usuarios</h:commandLink></li> -->
-public String loadUsers(){
-	setUserList(FactoryDAO.getFinalUserDAO().getAll());
-	return "showUser";
-}
+	public String getRepeatedPsw() {
+		return repeatedPsw;
+	}
 
-public List<FinalUser> getUserList() {
-	return userList;
-}
+	public void setRepeatedPsw(String repeatedPsw) {
+		this.repeatedPsw = repeatedPsw;
+	}
 
-public void setUserList(List<FinalUser> userList) {
-	this.userList = userList;
-}
+	public String getUser_id() {
+		return user_id;
+	}
 
-public boolean isNewPsw() {
-	return newPsw;
-}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
-public void setNewPsw(boolean newPsw) {
-	this.newPsw = newPsw;
-}
- 
+	//
+	//<!-- <li><h:commandLink action="#{userBean.loadUsers}">Usuarios</h:commandLink></li> -->
+	public String loadUsers(){
+		setUserList(FactoryDAO.getFinalUserDAO().getAll());
+		return "showUser";
+	}
+
+	public List<FinalUser> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<FinalUser> userList) {
+		this.userList = userList;
+	}
+
+	public boolean isNewPsw() {
+		return newPsw;
+	}
+
+	public void setNewPsw(boolean newPsw) {
+		this.newPsw = newPsw;
+	}
+
 }
