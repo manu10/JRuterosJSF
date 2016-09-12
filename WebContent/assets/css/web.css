@@ -1,0 +1,35 @@
+.titulo{
+  font-size: 50px;
+  padding-bottom: 20px;
+}
+
+/* -- HEADER -- */
+body {
+ padding-top: 70px;
+}
+
+/* ASIDE */
+.back-to-top {
+  position: fixed;
+  display: none;
+  border-radius: 20px;
+  bottom: 70px;
+  z-index: 9999;
+}
+
+/* -- FOOTER -- */
+footer .navbar{
+  border-radius: 0;
+  /*background:#7bbfcf;*/
+	color:#fff;
+  /*border-color:#7bbfcf;
+  border-top-width: 4px;
+  border-top-color:#000;*/
+  /*border-bottom-width: 4px;
+  border-bottom-color:#000;*/
+  margin-bottom: 0;
+}
+
+footer .navbar .container{
+  margin-top: 10px;
+}

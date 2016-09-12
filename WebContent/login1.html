@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>JRuteros</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+  <!-- bootstrap css y js -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!-- Optional theme -->
+      <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
+    <script src="./assets/js/jquery.js" defer></script>
+    <script src="./assets/js/bootstrap.min.js" defer></script>
+
+  <!-- web css y js -->
+    <link rel="stylesheet" href="./assets/css/web.css">
+    <script src="./assets/js/web.js" defer></script>
+  <!-- local css y js -->
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <script src="./assets/js/login.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- menu responsive -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand hidden-xs">
+            <img alt="Brand" class="img-thumbnail" width="100" height="100" src="assets/images/logo.png">
+          </a>
+          <a href="index.html" class="navbar-brand">
+            JRuteros
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-PM">
+            <span class="sr-only">Desplegar / Ocultar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- contenido del menu -->
+        <div class="collapse navbar-collapse" id="nav-PM">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar">
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="sr-only">Buscar</span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="registration.html">Regístrate</a></li>
+            <li><a href="login.html">Ingresa</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Usuario#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="trail_new.html">Nueva Ruta</a></li>
+                <li class="divider"></li>
+                <li><a href="user.html">Mi Cuenta</a></li>
+                <li><a href="trail_self.html">Mis Rutas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Admin#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="users.html">Usuarios</a></li>
+                <li><a href="activities.html">Actividades</a></li>
+                <li><a href="statistics.html">Estadisticas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <h2>Ingresar a Mi cuenta</h2>
+        <form action="index_logued.html" method="post" class="form-horizontal">
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-8">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+            <div class="col-sm-8">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Recordarme
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Ingresar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row option">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p>¿Olvidaste la contraseña? <a href="recovery.html">Click acá para recuperarla</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="login-help">
+    <p>¿Aún no tienes una cuenta? <a href="registration.html">Regístrate</a></p>
+  </div>
+
+  <footer>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+  			Copyright © 1999-2016 JRuteros S.R.L.
+  			<ul class="list-inline pull-right">
+  				<li><a href="./terminos.html" data-tracking="FOOTER-TERMINOS">Términos y condiciones</a></li>
+  				<li><a href="./privacidad.html" data-tracking="FOOTER-PRIVACIDAD">Políticas de privacidad</a></li>
+  				<li><a href="./ayuda.html">Ayuda</a></li>
+  			</ul>
+      </div>
+    </nav>
+	</footer>
+
+</body>
+</html>

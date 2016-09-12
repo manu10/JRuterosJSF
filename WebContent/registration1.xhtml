@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      lang="es">
+	
+    
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+  <title>JRuteros</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"></link>
+  <!-- bootstrap css y js -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"></link>
+    <!-- Optional theme -->
+      <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css"></link>
+    <script src="./assets/js/jquery.js" defer="defer" ></script>
+    <script src="./assets/js/bootstrap.min.js" defer="defer"></script>
+
+  <!-- web css y js -->
+    <link rel="stylesheet" href="./assets/css/web.css"></link>
+    <script src="./assets/js/web.js" defer="defer"></script>
+  <!-- local css y js -->
+    <link rel="stylesheet" href="./assets/css/login.css"></link>
+    <script src="./assets/js/login.js" defer="defer"></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- menu responsive -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand hidden-xs">
+            <img alt="Brand" class="img-thumbnail" width="100" height="100" src="assets/images/logo.png"></img>
+          </a>
+          <a href="index.html" class="navbar-brand">
+            JRuteros
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-PM">
+            <span class="sr-only">Desplegar / Ocultar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- contenido del menu -->
+        <div class="collapse navbar-collapse" id="nav-PM">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar"></input>
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="sr-only">Buscar</span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="registration.html">Regístrate</a></li>
+            <li><a href="login.html">Ingresa</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Usuario#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="trail_new.html">Nueva Ruta</a></li>
+                <li class="divider"></li>
+                <li><a href="user.html">Mi Cuenta</a></li>
+                <li><a href="trail_self.html">Mis Rutas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            <c:if test="#{userBean.usuario.id eq 1}">
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Admin#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="users.xhtml">Usuarios</a></li>
+                <li><a href="activities.html">Actividades</a></li>
+                <li><a href="statistics.html">Estadisticas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            
+			</c:if>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <h2>Ingresar a Mi cuenta</h2>
+        <h:form class="form-horizontal" >
+    	   <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputName" value="#{userBean.usuario.name}" placeholder="Nombre"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputLast" class="col-sm-2 control-label">Apellido</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputLast" value="#{userBean.usuario.lastName}" placeholder="Apellido"></h:inputText>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDni" class="col-sm-2 control-label">Dni</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputDni" value="#{userBean.usuario.dni}" placeholder="12345678"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress" class="col-sm-2 control-label">Domicilio</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputAddress" value="#{userBean.usuario.address}" placeholder="av siempreviva 742 springfield"></h:inputText>
+              
+            </div>
+          </div>
+    	   
+    	   
+    	   <div class="form-group">
+            <label for="inputBirthDate" class="col-sm-2 control-label">Fecha de nacimiento</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputBirthDate" value="#{userBean.usuario.birthDate}" placeholder="DD/MM/YYYY"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputSex" class="col-sm-2 control-label">Sexo</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputSex" value="#{userBean.usuario.sex}" placeholder="Masculino/Femenino/otro"></h:inputText>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-8">
+              <h:inputText type="email" class="form-control" id="inputEmail" value="#{userBean.usuario.email}" placeholder="Email"></h:inputText>
+              
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <h:commandButton class="btn btn-primary" value="Registrarme" action="#{userBean.crearUsuario}"></h:commandButton>
+              
+            </div>
+          </div>
+          
+    	</h:form>
+    	
+      </div>
+      <div class="row option">
+        <div class="col-sm-offset-2 col-sm-8">
+          <p> Al registrarme, declaro que soy mayor de edad y acepto los <a href="./terminos.html">Términos y condiciones</a> y las <a href="./privacidad.html">Políticas de privacidad</a> de JRuteros. </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="login-help">
+    <p>¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a></p>
+  </div>
+
+  <footer>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+  			Copyright © 1999-2016 JRuteros S.R.L.
+  			<ul class="list-inline pull-right">
+  				<li><a href="./terminos.html">Términos y condiciones</a></li>
+  				<li><a href="./privacidad.html">Políticas de privacidad</a></li>
+  				<li><a href="./ayuda.html">Ayuda</a></li>
+  			</ul>
+      </div>
+    </nav>
+	</footer>
+
+</body>
+</html>

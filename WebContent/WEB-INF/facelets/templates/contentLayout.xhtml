@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/mainLayout.xhtml">
+
+	<ui:define name="title">
+		<ui:insert name="title" />
+	</ui:define>
+
+	<ui:define name="estilo">
+		<link rel="stylesheet" href="./assets/css/index.css"></link>
+		<script src="./assets/js/index.js" defer="defer"></script>
+	</ui:define>
+
+	<ui:define name="body">
+		<section class="main container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center">
+
+						<h2 class="titulo">
+							<ui:insert name="titulo" />
+						</h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!-- Barra lateral -->
+				<aside class="col-md-3 hidden-xs hidden-sm">
+					<ui:insert name="menu" />
+				</aside>
+
+				<!-- Contenido -->
+				<section class="col-md-9 col-xs-12 col-sm-12">
+					
+					<ui:insert name="contenido" />
+				</section>
+			</div>
+		</section>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,206 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/contentLayout.xhtml">
+
+	<ui:define name="title">
+		Usuario#1
+	</ui:define>
+
+	<ui:define name="titulo">
+		Usuario#1
+	</ui:define>
+
+	<ui:define name="menu">
+
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h3>
+						Nombre:
+						<button class="btn btn-warning pull-right" type="button"
+							data-toggle="collapse" title="Editar" data-target="#collapseName"
+							aria-expanded="false" aria-controls="collapseName">
+							<span class="sr-only">Editar</span> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</h3>
+					<h4>Pepe</h4>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="collapse" id="collapseName">
+					<div class="well">
+						<form action="" method="post" class="">
+							<input name="user_id" value="5" type="hidden"/>
+							<div class="form-group">
+								<label for="inputName">Editar nombre:</label> <input type="text"
+									class="form-control edit-in-PM" id="inputName"
+									placeholder="Pepe"/>
+								<button type="submit" class="btn btn-primary" title="Guardar">
+									<span class="sr-only">Guardar</span> <span
+										class="glyphicon glyphicon-floppy-disk"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h3>
+						Apellido:
+						<button class="btn btn-warning pull-right" type="button"
+							data-toggle="collapse" title="Editar" data-target="#collapseLast"
+							aria-expanded="false" aria-controls="collapseLast">
+							<span class="sr-only">Editar</span> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</h3>
+					<h4>García</h4>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="collapse" id="collapseLast">
+					<div class="well">
+						<form action="" method="post" class="">
+							<input name="user_id" value="5" type="hidden"/>
+							<div class="form-group">
+								<label for="inputLast">Editar apellido:</label> <input
+									type="text" class="form-control edit-in-PM" id="inputLast"
+									placeholder="García"/>
+								<button type="submit" class="btn btn-primary" title="Guardar">
+									<span class="sr-only">Guardar</span> <span
+										class="glyphicon glyphicon-floppy-disk"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h3>
+						Telefono:
+						<button class="btn btn-warning pull-right" type="button"
+							data-toggle="collapse" title="Editar"
+							data-target="#collapsePhone" aria-expanded="false"
+							aria-controls="collapsePhone">
+							<span class="sr-only">Editar</span> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</h3>
+					<h4>12345678</h4>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="collapse" id="collapsePhone">
+					<div class="well">
+						<form action="" method="post" class="">
+							<input name="user_id" value="5" type="hidden"/>
+							<div class="form-group">
+								<label for="inputPhone">Editar telefono:</label> <input
+									type="tel" class="form-control edit-in-PM" id="inputPhone"
+									placeholder="12345678"/>
+								<button type="submit" class="btn btn-primary" title="Guardar">
+									<span class="sr-only">Guardar</span> <span
+										class="glyphicon glyphicon-floppy-disk"></span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h3>
+						Email:
+						<button class="btn btn-warning pull-right" type="button"
+							data-toggle="collapse" title="Editar"
+							data-target="#collapseEmail" aria-expanded="false"
+							aria-controls="collapseEmail">
+							<span class="sr-only">Editar</span> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</h3>
+					<h4>tomm@tomm.com</h4>
+					<br class="hidden-xs"/> <br class="hidden-xs"/>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="collapse" id="collapseEmail">
+					<div class="well">
+						<form action="" method="post" class="">
+							<input name="user_id" value="5" type="hidden"/>
+							<div class="form-group">
+								<label for="inputEmail">Editar email:</label> <input type="text"
+									class="form-control edit-in-PM" id="inputEmail"
+									placeholder="tomm@tomm.com"/>
+								<button type="submit" class="btn btn-primary" title="Guardar">
+									<span class="sr-only">Guardar</span> <span
+										class="glyphicon glyphicon-floppy-disk"></span>
+								</button>
+							</div>
+						</form>
+						<p>Si modifica el email, tendra volver a que iniciar sesion
+							con el nuevo.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="jumbotron">
+					<h3>
+						Contraseña
+						<button class="btn btn-warning pull-right" type="button"
+							data-toggle="collapse" title="Editar"
+							data-target="#collapsePassword" aria-expanded="false"
+							aria-controls="collapsePassword">
+							<span class="sr-only">Editar</span> <span
+								class="glyphicon glyphicon-pencil"></span>
+						</button>
+					</h3>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="collapse" id="collapsePassword">
+					<div class="well">
+						<form action="" method="post" class="">
+							<input name="user_id" value="5" type="hidden"/>
+							<div class="form-group">
+								<label for="inputPassword">Editar contraseña:</label> <input
+									type="password" class="form-control" id="inputPassword"
+									placeholder="Contraseña"/>
+							</div>
+							<div class="form-group">
+								<label for="inputPassConfirm">Repetir</label> <input
+									type="password" class="form-control" id="inputPassConfirm"
+									placeholder="Repetir Contraseña"/>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary" title="Guardar">
+									<span class="sr-only">Guardar</span> <span
+										class="glyphicon glyphicon-floppy-disk"></span>
+								</button>
+							</div>
+						</form>
+						<p>Si modifica la contraseña, tendra volver a que iniciar
+							sesion con la nueva.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

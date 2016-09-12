@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      lang="es">
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+  <title>JRuteros</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" ></link>
+  <!-- bootstrap css y js -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css"></link>
+    <!-- Optional theme -->
+      <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css"></link>
+    <script src="./assets/js/jquery.js" defer="defer"></script>
+    <script src="./assets/js/bootstrap.min.js" defer="defer"></script>
+
+  <!-- web css y js -->
+    <link rel="stylesheet" href="./assets/css/web.css"></link>
+    <script src="./assets/js/web.js" defer="defer"></script>
+  <!-- local css y js -->
+    <link rel="stylesheet" href="./assets/css/index.css"></link>
+    <script src="./assets/js/index.js" defer="defer"></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- menu responsive -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand hidden-xs">
+            <img alt="Brand" class="img-thumbnail" width="100" height="100" src="assets/images/logo.png"></img>
+          </a>
+          <a href="index.html" class="navbar-brand">
+            JRuteros
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-PM">
+            <span class="sr-only">Desplegar / Ocultar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- contenido del menu -->
+        <div class="collapse navbar-collapse" id="nav-PM">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar"></input>
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="sr-only">Buscar</span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="registration.html">Regístrate</a></li>
+            <li><a href="login.html">Ingresa</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Usuario#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="trail_new.html">Nueva Ruta</a></li>
+                <li class="divider"></li>
+                <li><a href="user.html">Mi Cuenta</a></li>
+                <li><a href="trail_self.html">Mis Rutas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Admin#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="users.html">Usuarios</a></li>
+                <li><a href="activities.html">Actividades</a></li>
+                <li><a href="statistics.html">Estadisticas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="main container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-10">
+        <h2>Categorias:</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <button class="btn btn-primary pull-right" type="button" data-toggle="collapse" title="Nueva" data-target="#collapseNew" aria-expanded="false" aria-controls="collapseNew">
+          Nueva Categoria
+        </button>
+      </div>
+    </div>
+    <br></br>
+    <div class="row">
+      <div class="col-md-offset-5 col-md-5">
+        <div class="collapse" id="collapseNew">
+          <div class="well">
+            <form action="" method="post" class="">
+              <label for="inputNew">Crear categoria:</label>
+              <br></br>
+              <input type="text" class="form-control edit-in-PM" id="inputNew" placeholder="Categoria"></input>
+              <button type="submit" class="btn btn-primary edit-btn" title="Crear">
+                <span class="sr-only">Crear</span>
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br></br>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+                <th>Nombre</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+                <th></th>
+            </tr>
+            <tr>
+              <td>
+                Arte
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" data-toggle="collapse" title="Editar" data-target="#collapseCat1" aria-expanded="false" aria-controls="collapseCat1">
+                  <span class="sr-only">Editar</span>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              </td>
+              <td>
+                <button type="submit" class="btn btn-danger" title="Eliminar">
+                  <span class="sr-only">Eliminar</span>
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+              <td>
+                <div class="collapse" id="collapseCat1">
+                  <div class="well">
+                    <form action="" method="post" class="">
+                      <input name="cat_id" value="5" type="hidden"></input>
+                      <label for="inputCat1">Editar categoria: Arte</label>
+                      <br></br>
+                      <input type="text" class="form-control edit-in-PM" id="inputCat1" placeholder="Arte"></input>
+                      <button type="submit" class="btn btn-primary edit-btn" title="Guardar">
+                        <span class="sr-only">Guardar</span>
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Camputacion
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" data-toggle="collapse" title="Editar" data-target="#collapseCat2" aria-expanded="false" aria-controls="collapseCat2">
+                  <span class="sr-only">Editar</span>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              </td>
+              <td>
+                <button type="submit" class="btn btn-danger" title="Eliminar">
+                  <span class="sr-only">Eliminar</span>
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+              <td>
+                <div class="collapse" id="collapseCat2">
+                  <div class="well">
+                    <form action="" method="post" class="">
+                      <input name="cat_id" value="5" type="hidden"></input>
+                      <label for="inputCat2">Editar categoria: Camputacion</label>
+                      <br></br>
+                      <input type="text" class="form-control edit-in-PM" id="inputCat2" placeholder="Camputacion"></input>
+                      <button type="submit" class="btn btn-primary edit-btn" title="Guardar">
+                        <span class="sr-only">Guardar</span>
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Arte
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" data-toggle="collapse" title="Editar" data-target="#collapseCat3" aria-expanded="false" aria-controls="collapseCat3">
+                  <span class="sr-only">Editar</span>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              </td>
+              <td>
+                <button type="submit" class="btn btn-danger" title="Eliminar">
+                  <span class="sr-only">Eliminar</span>
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+              <td>
+                <div class="collapse" id="collapseCat3">
+                  <div class="well">
+                    <form action="" method="post" class="">
+                      <input name="cat_id" value="5" type="hidden"></input>
+                      <label for="inputCat3">Editar categoria: Arte</label>
+                      <br></br>
+                      <input type="text" class="form-control edit-in-PM" id="inputCat3" placeholder="Arte"></input>
+                      <button type="submit" class="btn btn-primary edit-btn" title="Guardar">
+                        <span class="sr-only">Guardar</span>
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Arte
+              </td>
+              <td>
+                <button class="btn btn-warning" type="button" data-toggle="collapse" title="Editar" data-target="#collapseCat4" aria-expanded="false" aria-controls="collapseCat4">
+                  <span class="sr-only">Editar</span>
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              </td>
+              <td>
+                <button type="submit" class="btn btn-danger" title="Eliminar">
+                  <span class="sr-only">Eliminar</span>
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+              <td>
+                <div class="collapse" id="collapseCat4">
+                  <div class="well">
+                    <form action="" method="post" class="">
+                      <input name="cat_id" value="5" type="hidden"></input>
+                      <label for="inputCat4">Editar categoria: Arte</label>
+                      <br></br>
+                      <input type="text" class="form-control edit-in-PM" id="inputCat4" placeholder="Arte"></input>
+                      <button type="submit" class="btn btn-primary edit-btn" title="Guardar">
+                        <span class="sr-only">Guardar</span>
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- <div class="col-md-4">
+        <div class="collapse" id="collapseCat">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="cat_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputCat">Editar categoria: Arte</label>
+                <input type="text" class="form-control edit-in-PM" id="inputCat" placeholder="Arte">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <footer>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+  			Copyright © 1999-2016 JRuteros S.R.L.
+  			<ul class="list-inline pull-right">
+  				<li><a href="./terminos.html" data-tracking="FOOTER-TERMINOS">Términos y condiciones</a></li>
+  				<li><a href="./privacidad.html" data-tracking="FOOTER-PRIVACIDAD">Políticas de privacidad</a></li>
+  				<li><a href="./ayuda.html">Ayuda</a></li>
+  			</ul>
+      </div>
+    </nav>
+	</footer>
+
+</body>
+</html>

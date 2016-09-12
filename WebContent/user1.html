@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>JRuteros</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+  <!-- bootstrap css y js -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!-- Optional theme -->
+      <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
+    <script src="./assets/js/jquery.js" defer></script>
+    <script src="./assets/js/bootstrap.min.js" defer></script>
+
+  <!-- web css y js -->
+    <link rel="stylesheet" href="./assets/css/web.css">
+    <script src="./assets/js/web.js" defer></script>
+  <!-- local css y js -->
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/index.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- menu responsive -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand hidden-xs">
+            <img alt="Brand" class="img-thumbnail" width="100" height="100" src="assets/images/logo.png">
+          </a>
+          <a href="index.html" class="navbar-brand">
+            JRuteros
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-PM">
+            <span class="sr-only">Desplegar / Ocultar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- contenido del menu -->
+        <div class="collapse navbar-collapse" id="nav-PM">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar">
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="sr-only">Buscar</span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="registration.html">Regístrate</a></li>
+            <li><a href="login.html">Ingresa</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Usuario#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="trail_new.html">Nueva Ruta</a></li>
+                <li class="divider"></li>
+                <li><a href="user.html">Mi Cuenta</a></li>
+                <li><a href="trail_self.html">Mis Rutas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Admin#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="users.html">Usuarios</a></li>
+                <li><a href="activities.html">Actividades</a></li>
+                <li><a href="statistics.html">Estadisticas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="jumbotron">
+    <div class="container">
+      <div class="row">
+
+      </div>
+    </div>
+  </section>
+
+  <section class="main container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-4">
+        <div class="jumbotron">
+          <h3>Nombre:
+            <button class="btn btn-warning pull-right" type="button" data-toggle="collapse" title="Editar" data-target="#collapseName" aria-expanded="false" aria-controls="collapseName">
+              <span class="sr-only">Editar</span>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </h3>
+          <h4>Pepe</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collapse" id="collapseName">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="user_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputName">Editar nombre:</label>
+                <input type="text" class="form-control edit-in-PM" id="inputName" placeholder="Pepe">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-4">
+        <div class="jumbotron">
+          <h3>Apellido:
+            <button class="btn btn-warning pull-right" type="button" data-toggle="collapse" title="Editar" data-target="#collapseLast" aria-expanded="false" aria-controls="collapseLast">
+              <span class="sr-only">Editar</span>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </h3>
+          <h4>García</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collapse" id="collapseLast">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="user_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputLast">Editar apellido:</label>
+                <input type="text" class="form-control edit-in-PM" id="inputLast" placeholder="García">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-4">
+        <div class="jumbotron">
+          <h3>Telefono:
+            <button class="btn btn-warning pull-right" type="button" data-toggle="collapse" title="Editar" data-target="#collapsePhone" aria-expanded="false" aria-controls="collapsePhone">
+              <span class="sr-only">Editar</span>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </h3>
+          <h4>12345678</h4>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collapse" id="collapsePhone">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="user_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputPhone">Editar telefono:</label>
+                <input type="tel" class="form-control edit-in-PM" id="inputPhone" placeholder="12345678">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-4">
+        <div class="jumbotron">
+          <h3>Email:
+            <button class="btn btn-warning pull-right" type="button" data-toggle="collapse" title="Editar" data-target="#collapseEmail" aria-expanded="false" aria-controls="collapseEmail">
+              <span class="sr-only">Editar</span>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </h3>
+          <h4>tomm@tomm.com</h4>
+          <br class="hidden-xs">
+          <br class="hidden-xs">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collapse" id="collapseEmail">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="user_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputEmail">Editar email:</label>
+                <input type="text" class="form-control edit-in-PM" id="inputEmail" placeholder="tomm@tomm.com">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+            <p>Si modifica el email, tendra volver a que iniciar sesion con el nuevo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-4">
+        <div class="jumbotron">
+          <h3>Contraseña
+            <button class="btn btn-warning pull-right" type="button" data-toggle="collapse" title="Editar" data-target="#collapsePassword" aria-expanded="false" aria-controls="collapsePassword">
+              <span class="sr-only">Editar</span>
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+          </h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="collapse" id="collapsePassword">
+          <div class="well">
+            <form action="" method="post" class="">
+              <input name="user_id" value="5" type="hidden">
+              <div class="form-group">
+                <label for="inputPassword">Editar contraseña:</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+              </div>
+              <div class="form-group">
+                <label for="inputPassConfirm">Repetir</label>
+                <input type="password" class="form-control" id="inputPassConfirm" placeholder="Repetir Contraseña">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" title="Guardar">
+                  <span class="sr-only">Guardar</span>
+                  <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
+              </div>
+            </form>
+            <p>Si modifica la contraseña, tendra volver a que iniciar sesion con la nueva.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+  			Copyright © 1999-2016 JRuteros S.R.L.
+  			<ul class="list-inline pull-right">
+  				<li><a href="./terminos.html" data-tracking="FOOTER-TERMINOS">Términos y condiciones</a></li>
+  				<li><a href="./privacidad.html" data-tracking="FOOTER-PRIVACIDAD">Políticas de privacidad</a></li>
+  				<li><a href="./ayuda.html">Ayuda</a></li>
+  			</ul>
+      </div>
+    </nav>
+	</footer>
+
+</body>
+</html>

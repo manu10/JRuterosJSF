@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>JRuteros</title>
+  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+  <!-- bootstrap css y js -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <!-- Optional theme -->
+      <link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css">
+    <script src="./assets/js/jquery.js" defer></script>
+    <script src="./assets/js/bootstrap.min.js" defer></script>
+
+  <!-- web css y js -->
+    <link rel="stylesheet" href="./assets/css/web.css">
+    <script src="./assets/js/web.js" defer></script>
+  <!-- local css y js -->
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="./assets/js/index.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- menu responsive -->
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand hidden-xs">
+            <img alt="Brand" class="img-thumbnail" width="100" height="100" src="assets/images/logo.png">
+          </a>
+          <a href="index.html" class="navbar-brand">
+            JRuteros
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-PM">
+            <span class="sr-only">Desplegar / Ocultar</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <!-- contenido del menu -->
+        <div class="collapse navbar-collapse" id="nav-PM">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Buscar">
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-search"></span>
+              <span class="sr-only">Buscar</span>
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="registration.html">Regístrate</a></li>
+            <li><a href="login.html">Ingresa</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Usuario#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="trail_new.html">Nueva Ruta</a></li>
+                <li class="divider"></li>
+                <li><a href="user.html">Mi Cuenta</a></li>
+                <li><a href="trail_self.html">Mis Rutas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                Admin#1 <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="users.html">Usuarios</a></li>
+                <li><a href="activities.html">Actividades</a></li>
+                <li><a href="statistics.html">Estadisticas</a></li>
+                <li class="divider"></li>
+                <li><a href="index.html">Salir</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="main container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h2 class="titulo">Rutas actuales</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Barra lateral -->
+      <aside class="col-md-3 hidden-xs hidden-sm">
+        <h3>Filtros</h3>
+        <a href="#" class="btn btn-primary back-to-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+        <h4>Recorridos</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Todos</a>
+          <a href="#" class="list-group-item">Recorridos solo ida</a>
+          <a href="#" class="list-group-item">Recorridos circulares</a>
+        </div>
+        <h4>Distancia</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Todas</a>
+          <a href="#" class="list-group-item">0km - 5km</a>
+          <a href="#" class="list-group-item">5km - 10km</a>
+          <a href="#" class="list-group-item">10km - 25km</a>
+          <a href="#" class="list-group-item">25km - 50km</a>
+          <a href="#" class="list-group-item">50km - 100km</a>
+          <a href="#" class="list-group-item">100km +</a>
+        </div>
+        <h4>Dificultad</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Todas</a>
+          <a href="#" class="list-group-item">Facíl</a>
+          <a href="#" class="list-group-item">Moderado</a>
+          <a href="#" class="list-group-item">Dificil</a>
+          <a href="#" class="list-group-item">Muy dificil</a>
+          <a href="#" class="list-group-item">Solo expertos</a>
+        </div>
+        <h4>Actividad</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Todas</a>
+          <a href="#" class="list-group-item">Ciclismo</a>
+          <a href="#" class="list-group-item">Cabalgata</a>
+          <a href="#" class="list-group-item">Tracking</a>
+        </div>
+        <h4>Cercania a un punto</h4>
+        <div class="list-group">
+          <a href="#" class="list-group-item"><img class="img-responsive" src="assets/images/map.jpg" alt="Mapa"></a>
+        </div>
+      </aside>
+
+      <!-- Contenido -->
+      <section class="col-md-9 col-xs-12 col-sm-12">
+        <!-- Articulos -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <table class="table">
+                <tr>
+                  <th></th>
+  								<th>Nombre</th>
+  								<th>Actividad</th>
+  								<th>Distancia</th>
+  								<th>Dificultad</th>
+  								<th>Puntuacion</th>
+  								<th>Realizado por:</th>
+  							</tr>
+                <tr href="trail.html">
+  								<td><a href="trail.html"><img src="assets/images/map.jpg" width="100" height="100" alt="Producto"></a></td>
+  								<td><a href="trail.html"><h3>Super circuito patagonico</h3></a></td>
+  								<td>Cabalgata</td>
+  								<td>20km</td>
+  								<td>Dificil</td>
+  								<td>4.5</td>
+  								<td>12 personas</td>
+  							</tr>
+                <tr href="trail.html">
+  								<td><a href="trail.html"><img src="assets/images/map.jpg" width="100" height="100" alt="Producto"></a></td>
+  								<td><a href="trail.html"><h3>Super circuito patagonico</h3></a></td>
+  								<td>Cabalgata</td>
+  								<td>20km</td>
+  								<td>Dificil</td>
+  								<td>4.5</td>
+  								<td>12 personas</td>
+  							</tr>
+                <tr href="trail.html">
+  								<td><a href="trail.html"><img src="assets/images/map.jpg" width="100" height="100" alt="Producto"></a></td>
+  								<td><a href="trail.html"><h3>Super circuito patagonico</h3></a></td>
+  								<td>Cabalgata</td>
+  								<td>20km</td>
+  								<td>Dificil</td>
+  								<td>4.5</td>
+  								<td>12 personas</td>
+  							</tr>
+                <tr href="trail.html">
+  								<td><a href="trail.html"><img src="assets/images/map.jpg" width="100" height="100" alt="Producto"></a></td>
+  								<td><a href="trail.html"><h3>Super circuito patagonico</h3></a></td>
+  								<td>Cabalgata</td>
+  								<td>20km</td>
+  								<td>Dificil</td>
+  								<td>4.5</td>
+  								<td>12 personas</td>
+  							</tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paginador -->
+        <nav>
+          <div class="center-block">
+            <ul class="pagination">
+              <li class="disabled"><a href="#">&laquo;<span class="sr-only">Anterior</span></a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo; <span class="sr-only">Siguiente</span></a></li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+    </div>
+  </section>
+
+  <footer>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+  			Copyright © 1999-2016 JRuteros S.R.L.
+  			<ul class="list-inline pull-right">
+  				<li><a href="./terminos.html">Términos y condiciones</a></li>
+  				<li><a href="./privacidad.html">Políticas de privacidad</a></li>
+  				<li><a href="./ayuda.html">Ayuda</a></li>
+  			</ul>
+      </div>
+    </nav>
+	</footer>
+
+</body>
+</html>

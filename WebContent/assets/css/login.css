@@ -1,0 +1,68 @@
+/* General */
+.btn-link{
+  color: #105eba;
+}
+
+/* -- HEADER -- */
+body {
+ padding-bottom: 100px;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+/* ALERT */
+.rec-alert {
+  max-width: 768px;
+}
+
+/* FORM */
+.jumbotron {
+	background:#7bbfcf;
+  /*background: linear-gradient(#c2c2c2, #6a7c8e, #c2c2c2);*/
+	color:#fff;
+  max-width: 768px;
+  margin: auto;
+  position: relative;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.jumbotron p {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.jumbotron p a {
+  color: #106eba;
+  text-decoration: none; }
+  .jumbotron p a:hover {
+    text-decoration: underline;
+}
+
+.option {
+  border-top: 1px solid #106eba;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20;
+}
+h4 {
+  color: black;
+  padding-left: 15px
+}
+
+.login-help {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #7bbfcf;
+  text-align: center;
+  text-shadow: 0 1px #d7e9ed; }
+  .login-help a {
+    color: #106eba;
+    text-decoration: none; }
+    .login-help a:hover {
+      text-decoration: underline; }

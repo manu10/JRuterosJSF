@@ -1,0 +1,104 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/formLayout.xhtml">
+
+	<ui:define name="title">
+		Crear Cuenta
+	</ui:define>
+
+	<ui:define name="titulo">
+		Crear Cuenta
+	</ui:define>
+
+	<ui:define name="form">
+		<h:form class="form-horizontal">
+			<div class="form-group">
+				<label for="inputName" class="col-sm-2 control-label">Nombre</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputName"
+						value="#{userBean.usuario.name}" placeholder="Nombre"></h:inputText>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputLast" class="col-sm-2 control-label">Apellido</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputLast"
+						value="#{userBean.usuario.lastName}" placeholder="Apellido"></h:inputText>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputDni" class="col-sm-2 control-label">Dni</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputDni"
+						value="#{userBean.usuario.dni}" placeholder="12345678"></h:inputText>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputAddress" class="col-sm-2 control-label">Domicilio</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputAddress"
+						value="#{userBean.usuario.address}"
+						placeholder="av siempreviva 742 springfield"></h:inputText>
+
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="inputBirthDate" class="col-sm-2 control-label">Fecha
+					de nacimiento</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputBirthDate"
+						value="#{userBean.usuario.birthDate}" placeholder="DD/MM/YYYY"></h:inputText>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputSex" class="col-sm-2 control-label">Sexo</label>
+				<div class="col-sm-8">
+					<h:inputText class="form-control" id="inputSex"
+						value="#{userBean.usuario.sex}"
+						placeholder="Masculino/Femenino/otro"></h:inputText>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+				<div class="col-sm-8">
+					<h:inputText type="email" class="form-control" id="inputEmail"
+						value="#{userBean.usuario.email}" placeholder="Email"></h:inputText>
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<h:commandButton class="btn btn-primary" value="Registrarme"
+						action="#{userBean.crearUsuario}"></h:commandButton>
+
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="info">
+		<p>
+			Al registrarme, declaro que soy mayor de edad y acepto los <a
+				href="./terminos.html">Términos y condiciones</a> y las <a
+				href="./privacidad.html">Políticas de privacidad</a> de JRuteros.
+		</p>
+	</ui:define>
+
+	<ui:define name="ayuda">
+		<p>
+			¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a>
+		</p>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- menu responsive -->
+				<div class="navbar-header">
+					<a href="index.xhtml" class="navbar-brand hidden-xs"> <img
+						alt="Brand" class="img-thumbnail" width="100" height="100"
+						src="assets/images/logo.png" />
+					</a> <a href="index.xhtml" class="navbar-brand"> JRuteros </a>
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#nav-PM">
+						<span class="sr-only">Desplegar / Ocultar</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- contenido del menu -->
+				<div class="collapse navbar-collapse" id="nav-PM">
+					<form class="navbar-form navbar-right" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Buscar" />
+						</div>
+						<button type="submit" class="btn btn-default">
+							<span class="glyphicon glyphicon-search"></span> <span
+								class="sr-only">Buscar</span>
+						</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<c:choose>
+							<c:when test="#{login.user==null}">
+
+								<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+								<li><a href="registration.xhtml">Regístrate</a></li>
+								<li><a href="login.xhtml">Ingresa</a></li>
+							</c:when>
+							<c:when test="#{login.user!=null and !login.admin}">
+								<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button"> #{login.user.name} <span
+										class="caret"></span>
+								</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="newTrail.html">Nueva Ruta</a></li>
+										<li class="divider"></li>
+										<li><a href="editUser.xhtml">Mi Cuenta</a></li>
+										<li><a href="trail_self.html">Mis Rutas</a></li>
+										<li class="divider"></li>
+										<li><a href="logOut.xhtml">Salir</a></li>
+									</ul></li>
+							</c:when>
+							<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+							<c:otherwise>
+
+
+
+
+
+
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button"> #{login.user.name}(Admin) <span
+										class="caret"></span>
+								</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="users.xhtml">Usuarios</a></li>
+										<li><a href="activities.html">Actividades</a></li>
+										<li><a href="statistics.html">Estadisticas</a></li>
+										<li class="divider"></li>
+										<li><a href="logOut.xhtml">Salir</a></li>
+									</ul></li>
+							</c:otherwise>
+						</c:choose>
+
+						<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+</ui:composition>

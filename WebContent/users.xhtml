@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/contentLayout.xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="title">
+		Usuarios
+	</ui:define>
+
+	<ui:define name="titulo">
+		Usuarios
+	</ui:define>
+
+	<ui:define name="menu">
+
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="row">
+			<div class="col-md-10">
+				<h2>Usuarios:</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8">
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Nombre</th>
+							<th></th>
+						</tr>
+						<h:form>
+							<ui:repeat var="u" value="#{userList.userList}"
+								varStatus="status">
+								<tr>
+									<td>#{u.name} - #{u.isEnable}</td>
+						
+									
+											<td>
+												<div class="form-group">
+													<h:commandButton styleClass="btn btn-warning"
+														value="Habilitar"
+														action="#{userList.habilitar(status.index)}"></h:commandButton>
+												</div>
+
+											</td>
+									
+											<td>
+
+												<div class="form-group">
+													<h:commandButton styleClass="btn btn-danger"
+														value="Deshabilitar"
+														action="#{userList.deshabilitar(status.index)}"></h:commandButton>
+												</div>
+											</td>
+									
+								</tr>
+
+							</ui:repeat>
+						</h:form>
+					</table>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

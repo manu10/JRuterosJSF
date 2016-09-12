@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" lang="es">
+
+<head>
+<!--   <meta charset="UTF-8"></meta> -->
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"></meta>
+<title><ui:insert name="title" /> - JRuteros</title>
+<link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico"></link>
+
+<!-- bootstrap css y js -->
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css"></link>
+<script src="./assets/js/jquery.js" defer="defer"></script>
+<script src="./assets/js/bootstrap.min.js" defer="defer"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="./assets/css/bootstrap-theme.min.css"></link>
+
+<!-- web css y js -->
+<link rel="stylesheet" href="./assets/css/web.css"></link>
+<script src="./assets/js/web.js" defer="defer"></script>
+
+<!-- local css y js -->
+<ui:insert name="estilo" />
+
+</head>
+<body>
+	<ui:include src="/WEB-INF/facelets/templates/header.xhtml" />
+
+	<ui:insert name="body" />
+
+	<ui:include src="/WEB-INF/facelets/templates/footer.xhtml" />
+</body>
+</html>

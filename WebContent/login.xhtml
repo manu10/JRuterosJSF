@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/formLayout.xhtml">
+
+	<ui:define name="title">
+		Ingresar
+	</ui:define>
+
+	<ui:define name="titulo">
+		Ingresar a Mi cuenta
+	</ui:define>
+
+	<ui:define name="form">
+		<h:form class="form-horizontal">
+
+			<div class="form-group">
+				<label for="inputEmail" class="col-sm-2 control-label">Email</label>
+				<div class="col-sm-8">
+				<h:inputText type="email" class="form-control" id="inputAddress"
+						value="#{credential.email}">
+						</h:inputText>
+						
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+				<div class="col-sm-8">
+					   <h:inputSecret type="password" class="form-control" id="inputPassword" value="#{credential.password}" placeholder="Contraseña"></h:inputSecret>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-8">
+					<div class="checkbox">
+						<label> <input type="checkbox" /> Recordarme
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<h:commandButton class="btn btn-primary" value="Ingresar"
+						action="#{login.login}"></h:commandButton>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="info">
+		<p>
+			¿Olvidaste la contraseña? <a href="recovery.html">Click acá para
+				recuperarla</a>
+		</p>
+	</ui:define>
+
+	<ui:define name="ayuda">
+		<p>
+			¿Aún no tienes una cuenta? <a href="registration.html">Regístrate</a>
+		</p>
+	</ui:define>
+
+</ui:composition>

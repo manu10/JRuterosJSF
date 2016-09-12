@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/mainLayout.xhtml">
+
+	<ui:define name="title">
+		<ui:insert name="title" />
+	</ui:define>
+
+	<ui:define name="estilo">
+		<link rel="stylesheet" href="./assets/css/login.css"></link>
+		<script src="./assets/js/login.js" defer="defer"></script>
+	</ui:define>
+
+	<ui:define name="body">
+		<section class="jumbotron">
+			<div class="container">
+				<div class="row">
+					<h2>
+						<ui:insert name="titulo" />
+					</h2>
+					<ui:insert name="form" />
+				</div>
+				<div class="row option">
+					<div class="col-sm-offset-2 col-sm-8">
+						<ui:insert name="info" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="login-help">
+			<ui:insert name="ayuda" />
+		</div>
+	</ui:define>
+	
+</ui:composition>

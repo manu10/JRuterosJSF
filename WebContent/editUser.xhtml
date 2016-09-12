@@ -1,0 +1,108 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/formLayout.xhtml">
+
+	<ui:define name="title">
+		Editar usuario
+	</ui:define>
+
+	<ui:define name="titulo">
+		Editar usuario
+	</ui:define>
+
+	<ui:define name="form">
+		        <h:form class="form-horizontal" >
+    	   <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputName" value="#{login.user.name}" placeholder="Nombre"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputLast" class="col-sm-2 control-label">Apellido</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputLast" value="#{login.user.lastName}" placeholder="Apellido"></h:inputText>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDni" class="col-sm-2 control-label">Dni</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputDni" value="#{login.user.dni}" placeholder="12345678"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress" class="col-sm-2 control-label">Domicilio</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputAddress" value="#{login.user.address}" placeholder="av siempreviva 742 springfield"></h:inputText>
+              
+            </div>
+          </div>
+    	   
+    	   
+    	   <div class="form-group">
+            <label for="inputBirthDate" class="col-sm-2 control-label">Fecha de nacimiento</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputBirthDate" value="#{login.user.birthDate}" placeholder="DD/MM/YYYY"></h:inputText>
+             
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputSex" class="col-sm-2 control-label">Sexo</label>
+            <div class="col-sm-8">
+              <h:inputText class="form-control" id="inputSex" value="#{login.user.sex}" placeholder="Masculino/Femenino/otro"></h:inputText>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-8">
+              <h:inputText type="email" class="form-control" id="inputEmail" value="#{login.user.email}" placeholder="Email"></h:inputText>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+            <div class="col-sm-8">
+              
+              <h:inputSecret type="password" class="form-control" id="inputPassword" value="#{credential.newPsw}" placeholder="Contraseña"></h:inputSecret>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassConfirm" class="col-sm-2 control-label">Repetir</label>
+            <div class="col-sm-8">
+              
+              <h:inputSecret type="password" class="form-control" id="inputRepConfirm" value="#{credential.repeatedPsw}" placeholder="Repetir Contraseña"></h:inputSecret>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassConfirm" class="col-sm-2 control-label">CONFIRMAR Actual contraseña</label>
+            <div class="col-sm-8">
+              
+              <h:inputSecret type="password" class="form-control" id="inputPassConfirm" value="#{credential.confirmationPsw}" placeholder="Repetir Contraseña"></h:inputSecret>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <h:commandButton class="btn btn-primary" value="Modificar Datos" action="#{login.modificarDatos}"></h:commandButton>
+              
+            </div>
+          </div>
+          
+    	</h:form>
+	</ui:define>
+
+	<ui:define name="info">
+		
+	</ui:define>
+
+	<ui:define name="ayuda">
+	
+	</ui:define>
+
+</ui:composition>
