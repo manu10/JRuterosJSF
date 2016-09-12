@@ -11,19 +11,22 @@ import model.Activity;
 
 @ManagedBean
 @ViewScoped
-public class ActivityBean implements Serializable{
+public class ActivityBean implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Activity activity = new Activity();
 	private List<Activity> activityList;
-	
-	public ActivityBean(){
-		setActivityList(FactoryDAO.getActivityDAO().getAll());	
+
+	public ActivityBean() {
+		setActivityList(FactoryDAO.getActivityDAO().getAll());
+		//TODO validacion de acceso solo para admins
+		//TODO validacion de trails antes de eliminar
 	}
 
 	public String createActivity() {
+		activity.setIsEnable(true);
 		FactoryDAO.getActivityDAO().create(activity);
 		return "exito";
 	}
@@ -33,10 +36,27 @@ public class ActivityBean implements Serializable{
 		FactoryDAO.getActivityDAO().update(act);
 		return "exito";
 	}
+
 	public String deleteActivity(String index) {
 		Activity act = activityList.get(Integer.parseInt(index));
 		FactoryDAO.getActivityDAO().delete(act);
 		return "exito";
+	}
+
+	public String deshabilitar(String index) {
+		Activity act = activityList.get(Integer.parseInt(index));
+		act.setIsEnable(false);
+		FactoryDAO.getActivityDAO().update(act);
+		return "exito";
+
+	}
+
+	public String habilitar(String index) {
+		Activity act = activityList.get(Integer.parseInt(index));
+		act.setIsEnable(true);
+		FactoryDAO.getActivityDAO().update(act);
+		return "exito";
+
 	}
 
 	public Activity getActivity() {
@@ -46,7 +66,7 @@ public class ActivityBean implements Serializable{
 	public void setActivity(Activity activity) {
 		this.activity = activity;
 	}
-	
+
 	public List<Activity> getActivityList() {
 		return activityList;
 	}
@@ -56,7 +76,8 @@ public class ActivityBean implements Serializable{
 	}
 
 	// <!-- <li><h:commandLink
-	// action="#{activityBean.loadActivities}">Actividades</h:commandLink></li> -->
+	// action="#{activityBean.loadActivities}">Actividades</h:commandLink></li>
+	// -->
 	// public String loadActivities() {
 	// setActivityList(FactoryDAO.getActivityDAO().getAll());
 	// return "showActivities";

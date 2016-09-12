@@ -59,17 +59,19 @@
 								varStatus="status">
 								<tr>
 									<td>#{a.name}</td>
-									<!-- <td>
-										<div class="form-group">
-											<h:commandButton styleClass="btn btn-warning"
-												value="Habilitar"
-												action="#{userList.habilitar(status.index)}"></h:commandButton>
-										</div>
-									</td> -->
 									<td>
 										<div class="form-group">
-											<h:commandButton styleClass="btn btn-danger"
-												value="Eliminar"
+											<h:commandButton styleClass="btn btn-warning center-block"
+												value="Deshabilitar"
+												action="#{activityBean.deshabilitar(status.index)}" rendered="#{a.isEnable}"></h:commandButton>
+											<h:commandButton styleClass="btn btn-success center-block"
+												value="Habilitar"
+												action="#{activityBean.habilitar(status.index)}" rendered="#{!a.isEnable}"></h:commandButton>
+										</div>
+									</td>
+									<td>
+										<div class="form-group">
+											<h:commandButton styleClass="btn btn-danger" value="Eliminar"
 												action="#{activityBean.deleteActivity(status.index)}"></h:commandButton>
 										</div>
 									</td>
