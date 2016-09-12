@@ -1,0 +1,64 @@
+package controller;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import helpers.FactoryDAO;
+import model.Activity;
+
+@ManagedBean
+@ViewScoped
+public class ActivityBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Activity activity = new Activity();
+	private List<Activity> activityList;
+	
+	public ActivityBean(){
+		setActivityList(FactoryDAO.getActivityDAO().getAll());	
+	}
+
+	public String createActivity() {
+		FactoryDAO.getActivityDAO().create(activity);
+		return "exito";
+	}
+
+	public String updateActivity(String index) {
+		Activity act = activityList.get(Integer.parseInt(index));
+		FactoryDAO.getActivityDAO().update(act);
+		return "exito";
+	}
+	public String deleteActivity(String index) {
+		Activity act = activityList.get(Integer.parseInt(index));
+		FactoryDAO.getActivityDAO().delete(act);
+		return "exito";
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
+	}
+	
+	public List<Activity> getActivityList() {
+		return activityList;
+	}
+
+	public void setActivityList(List<Activity> activityList) {
+		this.activityList = activityList;
+	}
+
+	// <!-- <li><h:commandLink
+	// action="#{activityBean.loadActivities}">Actividades</h:commandLink></li> -->
+	// public String loadActivities() {
+	// setActivityList(FactoryDAO.getActivityDAO().getAll());
+	// return "showActivities";
+	// }
+}
