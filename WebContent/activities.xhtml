@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/facelets/templates/contentLayout.xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="title">
+		Actividades
+	</ui:define>
+
+	<ui:define name="titulo">
+		Actividades
+	</ui:define>
+
+	<ui:define name="menu">
+
+	</ui:define>
+
+	<ui:define name="contenido">
+		<div class="row">
+			<div class="col-md-10">
+				<h2>Crear Actividad:</h2>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="inputName" class="col-sm-2 control-label">Nombre</label>
+						<div class="col-sm-8">
+							<h:inputText class="form-control" id="inputName"
+								value="#{activityBean.activity.name}" placeholder="Nombre"></h:inputText>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<h:commandButton class="btn btn-primary" value="Crear"
+								action="#{activityBean.createActivity}"></h:commandButton>
+
+						</div>
+					</div>
+
+				</h:form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<h2>Actividades:</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8">
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Nombre</th>
+							<th></th>
+						</tr>
+						<h:form>
+							<ui:repeat var="a" value="#{activityBean.activityList}"
+								varStatus="status">
+								<tr>
+									<td>#{a.name}</td>
+									<!-- <td>
+										<div class="form-group">
+											<h:commandButton styleClass="btn btn-warning"
+												value="Habilitar"
+												action="#{userList.habilitar(status.index)}"></h:commandButton>
+										</div>
+									</td> -->
+									<td>
+										<div class="form-group">
+											<h:commandButton styleClass="btn btn-danger"
+												value="Eliminar"
+												action="#{activityBean.deleteActivity(status.index)}"></h:commandButton>
+										</div>
+									</td>
+								</tr>
+							</ui:repeat>
+						</h:form>
+					</table>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
