@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
+import helpers.EmailUtils;
 import helpers.FactoryDAO;
 import model.FinalUser;
 
@@ -34,7 +35,10 @@ public class UserBean {
 			usuario.setPassword(randomString(8));
 			usuario.setIsEnable(true);
 			FactoryDAO.getFinalUserDAO().create(usuario);
+			if (usuario.getEmail().equals("manugarcia010@gmail.com"))//TODO: Eliminar, es simplemente para probar
+				EmailUtils.sendPsw(usuario);
 			newPsw=true;
+
 			return "exito";	
 		}
 		return "userExist";

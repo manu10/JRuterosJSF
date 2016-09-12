@@ -41,19 +41,13 @@
 									
 											<td>
 												<div class="form-group">
-													<h:commandButton styleClass="btn btn-warning"
+													<h:commandButton styleClass="btn btn-success center-block"
 														value="Habilitar"
-														action="#{userList.habilitar(status.index)}"></h:commandButton>
-												</div>
+														action="#{userList.habilitar(status.index)}" rendered="#{!u.isEnable}"></h:commandButton>
 
-											</td>
-									
-											<td>
-
-												<div class="form-group">
-													<h:commandButton styleClass="btn btn-danger"
+													<h:commandButton styleClass="btn btn-danger center-block"
 														value="Deshabilitar"
-														action="#{userList.deshabilitar(status.index)}"></h:commandButton>
+														action="#{userList.deshabilitar(status.index)}" rendered="#{u.isEnable}"></h:commandButton>
 												</div>
 											</td>
 									

@@ -40,6 +40,58 @@ public class Login implements Serializable{
 	private User user;
 	private boolean isAdmin; //TODO:arreglar esto!!!
 	private String email; 
+	private String repeatedPsw;
+	private String newPsw;
+	private String confirmationPsw;
+	
+	public String getRepeatedPsw() {
+		return repeatedPsw;
+	}
+
+
+
+
+
+	public void setRepeatedPsw(String repeatedPsw) {
+		this.repeatedPsw = repeatedPsw;
+	}
+
+
+
+
+
+	public String getNewPsw() {
+		return newPsw;
+	}
+
+
+
+
+
+	public void setNewPsw(String newPsw) {
+		this.newPsw = newPsw;
+	}
+
+
+
+
+
+	public String getConfirmationPsw() {
+		return confirmationPsw;
+	}
+
+
+
+
+
+	public void setConfirmationPsw(String confirmationPsw) {
+		this.confirmationPsw = confirmationPsw;
+	}
+
+
+
+
+
 	public String getEmail() {
 		return email;
 	}
@@ -204,17 +256,16 @@ public class Login implements Serializable{
 
 
 		public String modificarDatos(){
-			//		if (credential.getConfirmationPsw().equals(user.getPassword())){
-			//			String psw=credential.getNewPsw();
-			//			if ((!psw.equals("")) && psw.equals(credential.getRepeatedPsw())){
-			//				user.setPassword(psw);
-			//			}
-			//			if (user instanceof FinalUser)
-			//				FactoryDAO.getFinalUserDAO().update((FinalUser)user);
-			//			//		else if (user instanceof Admin)
-			//			//			FactoryDAO.getAdminDAO().update((FinalUser)user);
-			//			return "exito";	
-			//		}
+					if (confirmationPsw.equals(user.getPassword())){
+						if ((!newPsw.equals("")) &&(newPsw.length()>5)&& psw.equals(repeatedPsw)){
+							user.setPassword(psw);
+						}
+						if (user instanceof FinalUser)
+							FactoryDAO.getFinalUserDAO().update((FinalUser)user);
+						//		else if (user instanceof Admin)
+						//			FactoryDAO.getAdminDAO().update((FinalUser)user);
+						return "exito";	
+					}
 			return "fallo";
 		}
 
